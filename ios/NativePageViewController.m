@@ -17,14 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-  
-    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [backBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [backBtn setTitle:@"back" forState:UIControlStateNormal];
-    [backBtn setBackgroundColor:[UIColor greenColor]];
-    [backBtn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
-    backBtn.frame = CGRectMake(100, 100, 100, 40);
-    [self.view addSubview:backBtn];
+    self.navigationController.navigationBarHidden = NO;
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"back" style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
+    self.navigationController.navigationItem.leftBarButtonItems = @[backItem];
   
     UIButton *invokeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [invokeBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -34,9 +29,13 @@
     invokeBtn.frame = CGRectMake(100, 200, 100, 40);
     [self.view addSubview:invokeBtn];
 }
+- (void)viewWillDisappear:(BOOL)animated {
+  [super viewWillDisappear:animated];
+  self.navigationController.navigationBarHidden = YES;
+}
 
 - (void)goBack {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)invokeReactNativePage {

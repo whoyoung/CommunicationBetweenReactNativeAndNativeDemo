@@ -18,14 +18,9 @@ RCT_EXPORT_MODULE();
 RCT_EXPORT_METHOD(jumpNativePage:(NSString *)from) {
   NativePageViewController *nativeVC = [[NativePageViewController alloc] init];
   nativeVC.title = from;
-  UINavigationController *navController = [[UINavigationController alloc] initWithNavigationBarClass:[UINavigationBar class] toolbarClass:nil];
-  navController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont boldSystemFontOfSize:17]};
-  navController.navigationBar.barTintColor = [UIColor blueColor];
   
-  navController.viewControllers = @[nativeVC];
+  UINavigationController *rootNavController = (UINavigationController *)[[UIApplication sharedApplication] delegate].window.rootViewController;
   
-  [[[UIApplication sharedApplication] delegate].window.rootViewController presentViewController:navController animated:YES completion:nil];
-  
-  
+  [rootNavController pushViewController:nativeVC animated:YES];
 }
 @end

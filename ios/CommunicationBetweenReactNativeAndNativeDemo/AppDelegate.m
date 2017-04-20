@@ -29,7 +29,12 @@
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   UIViewController *rootViewController = [UIViewController new];
   rootViewController.view = rootView;
-  self.window.rootViewController = rootViewController;
+  UINavigationController *navController = [[UINavigationController alloc] initWithNavigationBarClass:[UINavigationBar class] toolbarClass:nil];
+  navController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont boldSystemFontOfSize:17]};
+  navController.navigationBar.barTintColor = [UIColor blueColor];
+  navController.viewControllers = @[rootViewController];
+  navController.navigationBarHidden = YES;
+  self.window.rootViewController = navController;
   [self.window makeKeyAndVisible];
   return YES;
 }
