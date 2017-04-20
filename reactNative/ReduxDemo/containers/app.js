@@ -4,21 +4,24 @@ import {createStore,applyMiddleware,combineReducers} from 'redux';
 import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
 
-import Reducer from '../reducers/reducers';
+import reduxDemoReducer from '../reducers/reducers';
+const Reducer = combineReducers({
+    reduxDemoReducer
+});
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 const store = createStoreWithMiddleware(Reducer);
-
 import Container from './container';
 
 class App extends Component{
     constructor(props){
         super(props);
+        console.log('from======'+props.from);
     }
 
      render() {
         return (
             <Provider store={store}> 
-                <Container />
+                <Container {...this.props}/>
             </Provider>
         )
     }

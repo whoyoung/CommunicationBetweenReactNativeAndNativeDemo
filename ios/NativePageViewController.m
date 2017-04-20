@@ -7,6 +7,7 @@
 //
 
 #import "NativePageViewController.h"
+#import "ReactNativeContainerViewController.h"
 
 @interface NativePageViewController ()
 
@@ -21,12 +22,13 @@
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"back" style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
     self.navigationController.navigationItem.leftBarButtonItems = @[backItem];
   
+    CGSize screenSize = [UIScreen mainScreen].bounds.size;
     UIButton *invokeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [invokeBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [invokeBtn setTitle:@"invoke" forState:UIControlStateNormal];
+    [invokeBtn setTitle:@"toReactNativePage" forState:UIControlStateNormal];
     [invokeBtn setBackgroundColor:[UIColor greenColor]];
     [invokeBtn addTarget:self action:@selector(invokeReactNativePage) forControlEvents:UIControlEventTouchUpInside];
-    invokeBtn.frame = CGRectMake(100, 200, 100, 40);
+    invokeBtn.frame = CGRectMake((screenSize.width-200)/2.0, (screenSize.height-64)/2.0, 200, 40);
     [self.view addSubview:invokeBtn];
 }
 - (void)viewWillDisappear:(BOOL)animated {
@@ -39,7 +41,8 @@
 }
 
 - (void)invokeReactNativePage {
-    NSLog(@"lalalla");
+    ReactNativeContainerViewController *containerVC = [[ReactNativeContainerViewController alloc] init];
+    [self.navigationController pushViewController:containerVC animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

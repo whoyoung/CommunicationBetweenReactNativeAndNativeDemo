@@ -34,7 +34,8 @@ class Box extends Component{
     let {name} = this.props.state;
     return(
       <View style ={{flex:1,alignItems:'center',justifyContent:'center'}}>
-          <Text style ={{fontSize:18}} onPress ={()=>Actions.pop()}>Actions.pop</Text>
+          {this.props.from ? <Text style ={{fontSize:18}}>{this.props.from}</Text> : null}
+          <Text style ={{fontSize:18,marginTop:10}} onPress ={()=>Actions.pop()}>Actions.pop</Text>
           <Text style ={{fontSize:18,marginTop:10}} onPress ={()=>this.click()}>{name}</Text>
           <Text style ={{fontSize:18,marginTop:10}} onPress ={()=>YHNativeInvokeModule.jumpNativePage('fromReactNative')}>go to native page</Text>
       </View>
