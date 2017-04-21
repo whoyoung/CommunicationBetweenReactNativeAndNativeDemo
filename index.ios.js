@@ -8,9 +8,11 @@ import {
   AppRegistry,
 } from 'react-native';
 import AppEntrance from './reactNative/AppEntrance';
-import ReactNativeComponent from './reactNative/RNPage';
-import ReduxDemoComponent from './reactNative/ReduxDemo/containers/app';
+import SimpleComponent from './reactNative/RNPage';
+import RNComponent from './reactNative/ReduxDemo/containers/app';
+import NavigatorRNComponent from './reactNative/ReduxDemo/containers/navigatorApp';
 
 AppRegistry.registerComponent('CommunicationBetweenReactNativeAndNativeDemo', () => AppEntrance);
-// AppRegistry.registerComponent('ReactNativeComponent', () => ReactNativeComponent);
-AppRegistry.registerComponent('ReactNativeComponent', () => ReduxDemoComponent);
+AppRegistry.registerComponent('SimpleRNComponent', () => SimpleComponent);
+AppRegistry.registerComponent('RNComponent', () => RNComponent);
+AppRegistry.registerComponent('NavigatorRNComponent', () => NavigatorRNComponent);

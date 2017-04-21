@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ReactNativeContainerViewController : UIViewController
-
+@property (nonatomic,assign) NSUInteger type;
 @end

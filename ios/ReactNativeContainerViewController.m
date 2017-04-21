@@ -18,12 +18,20 @@
 
 - (RCTRootView*)rootView{
   if(!_rootView){
+    NSString *moduleName = @"SimpleRNComponent";
     NSDictionary *config = [NSMutableDictionary new];
     [config setValue:@"fromNative" forKey:@"from"];
     
+    if (self.type == 1) {
+      moduleName = @"RNComponent";
+    } else if (self.type == 2) {
+      moduleName = @"NavigatorRNComponent";
+      [config setValue:@"fromNativeNavigator" forKey:@"from"];
+    }
+    
     NSURL *jsCodeLocation;
     jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
-      RCTRootView * rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation moduleName:@"ReactNativeComponent" initialProperties:config launchOptions:nil];
+      RCTRootView * rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation moduleName:moduleName initialProperties:config launchOptions:nil];
       rootView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
     rootView.backgroundColor=[UIColor whiteColor];
     [self.view addSubview:(_rootView = rootView)];
