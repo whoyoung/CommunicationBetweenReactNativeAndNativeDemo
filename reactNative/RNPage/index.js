@@ -7,11 +7,11 @@ import {
 class Page extends Component{
     
   render(){
-    let title = this.props.from ? this.props.from : RNPage;
+    let title = this.props.from ? this.props.from : 'RNPage';
     return(
-    <View style ={{flex:1,alignItems:'center',justifyContent:'center'}}>
-        <Text style ={{fontSize:18}}>{title}</Text>
-    </View>
+      <View style ={{flex:1,alignItems:'center',justifyContent:'center'}}>
+          <Text style ={{fontSize:18}}>{title}</Text>
+      </View>
     )
   }
 }

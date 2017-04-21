@@ -12,5 +12,5 @@ import ReactNativeComponent from './reactNative/RNPage';
 import ReduxDemoComponent from './reactNative/ReduxDemo/containers/app';
 
 AppRegistry.registerComponent('CommunicationBetweenReactNativeAndNativeDemo', () => AppEntrance);
-AppRegistry.registerComponent('ReactNativeComponent', () => ReactNativeComponent);
-// AppRegistry.registerComponent('ReactNativeComponent', () => ReduxDemoComponent);
+// AppRegistry.registerComponent('ReactNativeComponent', () => ReactNativeComponent);
+AppRegistry.registerComponent('ReactNativeComponent', () => ReduxDemoComponent);

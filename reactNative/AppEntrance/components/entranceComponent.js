@@ -22,10 +22,10 @@ export default class storeDispatchState extends Component {
             <Text style={styles.welcome}>
                 Welcome to React Native!aa
             </Text>
-            <Text style={styles.instructions} onPress = {()=>this.click()}>
+            <Text style ={{fontSize:18,marginTop:10,backgroundColor:'#26b8f2'}} onPress = {()=>this.click()}>
                 {isClicked? 'u,men,what is wrong?' : 'can you dare to click me?'}
             </Text>
-            <Text style={styles.instructions} onPress = {()=>Actions.yh_reduxDemo()}>
+            <Text style ={{fontSize:18,marginTop:10,backgroundColor:'#26b8f2'}} onPress = {()=>Actions.yh_reduxDemo()}>
                 go to reduxDemo
             </Text>
         </View>
@@ -45,9 +45,5 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     margin: 10,
   },
-  instructions: {
-    textAlign: 'center',
-    color: 'blue',
-    marginTop: 10,
-  },
+  
 });

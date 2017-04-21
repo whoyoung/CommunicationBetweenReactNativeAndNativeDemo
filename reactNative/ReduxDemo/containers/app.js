@@ -1,7 +1,7 @@
 
 import React,{Component} from 'react';
 import {createStore,applyMiddleware,combineReducers} from 'redux';
-import {Provider} from 'react-redux';
+import {Provider,connect} from 'react-redux';
 import thunk from 'redux-thunk';
 
 import reduxDemoReducer from '../reducers/reducers';
@@ -15,7 +15,6 @@ import Container from './container';
 class App extends Component{
     constructor(props){
         super(props);
-        console.log('from======'+props.from);
     }
 
      render() {

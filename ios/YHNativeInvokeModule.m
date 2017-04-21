@@ -8,6 +8,7 @@
 
 #import "YHNativeInvokeModule.h"
 #import "NativePageViewController.h"
+#import "ReactNativeContainerViewController.h"
 
 @implementation YHNativeInvokeModule
 RCT_EXPORT_MODULE();
@@ -23,4 +24,9 @@ RCT_EXPORT_METHOD(jumpNativePage:(NSString *)from) {
   
   [rootNavController pushViewController:nativeVC animated:YES];
 }
+RCT_EXPORT_METHOD(popCurrentPage) {
+    UINavigationController *rootNavController = (UINavigationController *)[[UIApplication sharedApplication] delegate].window.rootViewController;
+    [rootNavController popViewControllerAnimated:YES];
+}
+
 @end

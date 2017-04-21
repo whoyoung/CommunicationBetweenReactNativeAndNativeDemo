@@ -26,7 +26,7 @@
     UIButton *invokeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [invokeBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [invokeBtn setTitle:@"toReactNativePage" forState:UIControlStateNormal];
-    [invokeBtn setBackgroundColor:[UIColor greenColor]];
+    [invokeBtn setBackgroundColor:[UIColor colorWithRed:38/255.0 green:184/255.0 blue:242/255.0 alpha:1]];
     [invokeBtn addTarget:self action:@selector(invokeReactNativePage) forControlEvents:UIControlEventTouchUpInside];
     invokeBtn.frame = CGRectMake((screenSize.width-200)/2.0, (screenSize.height-64)/2.0, 200, 40);
     [self.view addSubview:invokeBtn];
